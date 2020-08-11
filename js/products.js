@@ -5,12 +5,7 @@ function showItemsList(array){
     for(let i = 0; i < array.length; i++){
         let pos = array[i];
 
-        item += `
-        <div class="item">
-            <h2 class="">`+ pos.title +`</h2>
-            <span class="float-right-top" title="` + pos.currency + `"> Precio: $` + pos.price + `</span>
-            <p>` + pos.description + `</p>
-        </div>`
+        item += 'Name' + pos.titulo + '<br>';
 
         document.getElementById("listado").innerHTML = item;
     }
