@@ -1,6 +1,33 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
+var productsurlArray = [];
+function showItemsList(array){
+
+    let item = "";
+    for(let i = 0; i < array.length; i++){
+        let pos = array[i];
+
+        item += `
+        <div class="item">
+            <h2 class="">`+ pos.title +`</h2>
+            <span class="float-right-top" title="` + pos.currency + `"> Precio: $` + pos.price + `</span>
+            <p>` + pos.description + `</p>
+        </div>`
+
+        document.getElementById("listado").innerHTML = item;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function (e) {
+getJSONData(PRODUCTS_URL).then(function(resultObj){
+    if(resultObj.status === "ok")
+    {
+        productsurlArray = resultObj.data;
+        showItemsList(productsurlArray)
+    }
+});
+    });
+
+
+
+    //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
-
-});
