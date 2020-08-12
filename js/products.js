@@ -5,7 +5,7 @@ function showItemsList(array){
     for(let i = 0; i < array.length; i++){
         let pos = array[i];
 
-        item += 'Name' + pos.titulo + '<br>';
+        
 
         document.getElementById("listado").innerHTML = item;
     }
