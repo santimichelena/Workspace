@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             alert("Debes ingresar los datos!");
         }
         if (camposCompletos){
-            window.location = 'index.html';
+            window.location = 'Inicio.html';
         }
     });
 
