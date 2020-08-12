@@ -1,13 +1,16 @@
 var productsurlArray = [];
 function showItemsList(array){
 
-    let item = "";
+    let contenido = "";
     for(let i = 0; i < array.length; i++){
         let pos = array[i];
-
+        contenido += 'Nombre' + category.name + '<br>';
+        contenido += 'Descripción' + category.description + '<br>'
+        contenido += 'Precio' + category.cost;
+        contenido += '<br><hr><br>';
         
 
-        document.getElementById("listado").innerHTML = item;
+        document.getElementById("listado").innerHTML = contenido;
     }
 }
 
