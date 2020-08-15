@@ -1,16 +1,16 @@
 var productsurlArray = [];
-function showItemsList(array){
+function showItemsList(){
 
     let contenido = "";
-    for(let i = 0; i < array.length; i++){
-    contenido = array[i];
-        contenido += 'Nombre' + category.name + '<br>';
-        contenido += 'Descripción' + category.description + '<br>'
-        contenido += 'Precio' + category.cost;
+    for(let i = 0; i < productsurlArray.length; i++){
+    let products = productsurlArray[i];
+        contenido += 'Nombre' + products.name + '<br>';
+        contenido += 'Descripción' + products.description + '<br>'
+        contenido += 'Precio' + products.cost;
         contenido += '<br><hr><br>';
         
 
-        document.getElementById("listado").innerHTML = contenido;
+        document.getElementsByClassName("listado").innerHTML = contenido;
     }
 }
 
