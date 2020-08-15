@@ -3,7 +3,7 @@ function showItemsList(array){
 
     let contenido = "";
     for(let i = 0; i < array.length; i++){
-        let pos = array[i];
+    contenido = array[i];
         contenido += 'Nombre' + category.name + '<br>';
         contenido += 'Descripción' + category.description + '<br>'
         contenido += 'Precio' + category.cost;
