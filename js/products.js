@@ -4,15 +4,31 @@ function showItemsList(){
     let contenido = "";
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
-        contenido += 'Nombre' + products.name + '<br>';
-        contenido += 'Descripción' + products.description + '<br>'
-        contenido += 'Precio' + products.cost;
-        contenido += '<br><hr><br>';
+    contenido +=`
+    <a href="category-info.html" class="list-group-item list-group-item-action">
+        <div class="row">
+            <div class="col-3">
+                <img src="` + products.imgSrc + `" class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">`+ products.name +`</h4>
+                </div>
+                <p class="mb-1">` + products.description + `</p>
+                <div class="jaja"> ` + "Precio:" + " " + products.cost +`</div>
+            </div>
+        </div>
+    </a>
+    `
+    
+  
+    }
+        
         
 
-        document.getElementsByClassName("listado").innerHTML = contenido;
+        document.getElementById("listado1").innerHTML = contenido;
     }
-}
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
 getJSONData(PRODUCTS_URL).then(function(resultObj){
