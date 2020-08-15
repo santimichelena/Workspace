@@ -41,4 +41,13 @@ var getJSONData = function(url){
 }
 
 
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(PRODUCTS_URL).then(function(resultObj){
+      if(resultObj.status === "ok")
+      {
+          productsurlArray = resultObj.data;
+          showItemsList(productsurlArray)
+      }
+  });
+      });
   
