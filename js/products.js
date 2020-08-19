@@ -1,10 +1,15 @@
 var productsurlArray = [];
+var miniCount = undefined;
+var maxiCount = undefined;
 function showItemsList(){
 
     let contenido = "";
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
-    contenido +=`
+    
+    
+  
+        contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
@@ -39,9 +44,9 @@ getJSONData(PRODUCTS_URL).then(function(resultObj){
     }
 });
     });
-
-
-
-    //Función que se ejecuta una vez que se haya lanzado el evento de
+     //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//elementos HTML presentes
+
+
+
