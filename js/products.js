@@ -7,7 +7,8 @@ function showItemsList(){
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
     
-    
+    if (((miniCount == undefined) || (miniCount != undefined && parseInt(products.productCount) >= miniCount)) &&
+            ((maxiCount == undefined) || (maxiCount != undefined && parseInt(products.productCount) <= maxiCount))){
   
         contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -28,6 +29,7 @@ function showItemsList(){
     
   
     }
+}
         
         
 
