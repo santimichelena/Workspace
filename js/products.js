@@ -1,14 +1,14 @@
 var productsurlArray = [];
-var miniCount = undefined;
-var maxiCount = undefined;
+var minProd = undefined;
+var maxProd = undefined;
 function showItemsList(){
 
     let contenido = "";
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
     
-    if (((miniCount == undefined) || (miniCount != undefined && parseInt(products.productCount) >= miniCount)) &&
-            ((maxiCount == undefined) || (maxiCount != undefined && parseInt(products.productCount) <= maxiCount))){
+    if (((minProd == undefined) || (minProd != undefined && parseInt(products.productCount) >= minProd)) &&
+            ((maxProd== undefined) || (maxProd != undefined && parseInt(products.productCount) <= maxProd))){
   
         contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -50,5 +50,32 @@ getJSONData(PRODUCTS_URL).then(function(resultObj){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes
 
+document.getElementById("filtrar").addEventListener("click", function (){
+    minProd = document.getElementById("rango-min").value;
+    maxProd = document.getElementById("rango-max").value;
 
+    if ((minProd != undefined) && (minProd != "") && (parseInt(minProd)) >=0) {
+        minProd = parseInt(minProd);
+    }
+    else {
+        minProd = undefined;
+    }
+    if ((maxProd != undefined) && (maxProd != "") && (parseInt(maxProd)) >=0) {
+        maxProd = parseInt(maxProd);
+    }
+    else {
+        maxProd = undefined;
+    }
+    showItemsList(productsurlArray);
+});
+
+document.getElementById("limpiar").addEventListener("click", function () {
+    document.getElementById("rango-min").value = "";
+    document.getElementById("rango-max").value = "";
+
+    minProd = undefined;
+    maxProd = undefined;
+    
+    showItemsList(productsurlArray);
+});
 
