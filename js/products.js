@@ -1,6 +1,45 @@
+const ORDER_ASC_BY_PRE = "pag ->PAG";
+const ORDER_DESC_BY_PRE = "PAG -> pag";
+const ORDER_BY_PRODUCT = "Products";
+var currentProductsArray = [];
+var currentSortCriterio = undefined;
+
 var productsurlArray = [];
 var minProd = undefined;
 var maxProd = undefined;
+
+function sortProducts(criterio, array){
+    let result = [];
+
+    if(criterio === ORDER_ASC_BY_PRE){
+        result = array.sort(function(a,b){
+            if(a.cost < b.cost){ return -1;}
+            if(a.cost > b.cost) { return 1;}
+            return 0
+        });
+    } else if (criterio === ORDER_DESC_BY_PRE){
+        result = array.sort(function(a,b){
+            if(a.cost > b.cost){ return -1;}
+            if(a.cost < b.cost){ return 1;}
+            return 0
+        });
+    }else if (criterio === ORDER_BY_PRODUCT){
+        result = array.sort(function(a, b) {
+            let aProduct = parseInt(a.productCount);
+            let bProduct = parseInt(b.productCount);
+
+            if ( aProduct > bProduct ){ return -1; }
+            if ( aProduct < bProduct ){ return 1; }
+            return 0;
+        });
+    }
+
+    return result;
+};
+
+
+
+
 function showItemsList(){
 
     let contenido = "";
@@ -79,3 +118,18 @@ document.getElementById("limpiar").addEventListener("click", function () {
     showItemsList(productsurlArray);
 });
 
+document.getElementById("sortPreAsc").addEventListener("click", function (){
+    productsurlArray = sortProducts(ORDER_ASC_BY_PRE, productsurlArray);
+    showItemsList(productsurlArray);
+});
+
+document.getElementById("sortPreDesc").addEventListener("click", function (){
+    productsurlArray = sortProducts(ORDER_DESC_BY_PRE, productsurlArray);
+    showItemsList(productsurlArray);
+});
+
+
+document.getElementById("sortByCount").addEventListener("click", function(){
+    productsurlArray = sortProducts(ORDER_BY_PRODUCT, productsurlArray);
+    showItemsList(productsurlArray);
+ });
