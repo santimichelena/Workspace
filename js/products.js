@@ -1,10 +1,55 @@
+const ORDER_ASC_BY_PRE = "pag ->PAG";
+const ORDER_DESC_BY_PRE = "PAG -> pag";
+const ORDER_BY_PRODUCT = "Products";
+var currentProductsArray = [];
+var currentSortCriterio = undefined;
+
 var productsurlArray = [];
+var minProd = undefined;
+var maxProd = undefined;
+
+function sortProducts(criterio, array){
+    let result = [];
+
+    if(criterio === ORDER_ASC_BY_PRE){
+        result = array.sort(function(a,b){
+            if(a.cost < b.cost){ return -1;}
+            if(a.cost > b.cost) { return 1;}
+            return 0
+        });
+    } else if (criterio === ORDER_DESC_BY_PRE){
+        result = array.sort(function(a,b){
+            if(a.cost > b.cost){ return -1;}
+            if(a.cost < b.cost){ return 1;}
+            return 0
+        });
+    }else if (criterio === ORDER_BY_PRODUCT){
+        result = array.sort(function(a, b) {
+            let aProduct = parseInt(a.productCount);
+            let bProduct = parseInt(b.productCount);
+
+            if ( aProduct > bProduct ){ return -1; }
+            if ( aProduct < bProduct ){ return 1; }
+            return 0;
+        });
+    }
+
+    return result;
+};
+
+
+
+
 function showItemsList(){
 
     let contenido = "";
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
-    contenido +=`
+    
+    if (((minProd == undefined) || (minProd != undefined && parseInt(product.cost) >= minProd)) &&
+            ((maxProd== undefined) || (maxProd != undefined && parseInt(product.cost) <= maxProd))){
+  
+        contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
@@ -23,6 +68,7 @@ function showItemsList(){
     
   
     }
+}
         
         
 
@@ -39,9 +85,51 @@ getJSONData(PRODUCTS_URL).then(function(resultObj){
     }
 });
     });
-
-
-
-    //Función que se ejecuta una vez que se haya lanzado el evento de
+     //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//elementos HTML presentes
+
+document.getElementById("filtrar").addEventListener("click", function (){
+    minProd = document.getElementById("rango-min").value;
+    maxProd = document.getElementById("rango-max").value;
+
+    if ((minProd != undefined) && (minProd != "") && (parseInt(minProd)) >=0) {
+        minProd = parseInt(minProd);
+    }
+    else {
+        minProd = undefined;
+    }
+    if ((maxProd != undefined) && (maxProd != "") && (parseInt(maxProd)) >=0) {
+        maxProd = parseInt(maxProd);
+    }
+    else {
+        maxProd = undefined;
+    }
+    showItemsList(productsurlArray);
+});
+
+document.getElementById("limpiar").addEventListener("click", function () {
+    document.getElementById("rango-min").value = "";
+    document.getElementById("rango-max").value = "";
+
+    minProd = undefined;
+    maxProd = undefined;
+    
+    showItemsList(productsurlArray);
+});
+
+document.getElementById("sortPreAsc").addEventListener("click", function (){
+    productsurlArray = sortProducts(ORDER_ASC_BY_PRE, productsurlArray);
+    showItemsList(productsurlArray);
+});
+
+document.getElementById("sortPreDesc").addEventListener("click", function (){
+    productsurlArray = sortProducts(ORDER_DESC_BY_PRE, productsurlArray);
+    showItemsList(productsurlArray);
+});
+
+
+document.getElementById("sortByCount").addEventListener("click", function(){
+    productsurlArray = sortProducts(ORDER_BY_PRODUCT, productsurlArray);
+    showItemsList(productsurlArray);
+ });
