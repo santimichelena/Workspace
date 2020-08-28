@@ -46,8 +46,8 @@ function showItemsList(){
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
     
-    if (((minProd == undefined) || (minProd != undefined && parseInt(products.productCount) >= minProd)) &&
-            ((maxProd== undefined) || (maxProd != undefined && parseInt(products.productCount) <= maxProd))){
+    if (((minProd == undefined) || (minProd != undefined && parseInt(product.cost) >= minProd)) &&
+            ((maxProd== undefined) || (maxProd != undefined && parseInt(product.cost) <= maxProd))){
   
         contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           
                        localStorage.setItem('User-Logged', JSON.stringify({ email: inputEmail.value}));
                   
-                       window.location = 'inicio.html';
+                       window.location = 'index.html';
         }
     });
 
