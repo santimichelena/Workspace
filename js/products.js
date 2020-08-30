@@ -1,8 +1,7 @@
 const ORDER_ASC_BY_PRE = "pag ->PAG";
 const ORDER_DESC_BY_PRE = "PAG -> pag";
-const ORDER_BY_PRODUCT = "Products";
-var currentProductsArray = [];
-var currentSortCriterio = undefined;
+const ORDER_BY_PRODUCT = "soldCount";
+
 
 var productsurlArray = [];
 var minProd = undefined;
@@ -25,8 +24,8 @@ function sortProducts(criterio, array){
         });
     }else if (criterio === ORDER_BY_PRODUCT){
         result = array.sort(function(a, b) {
-            let aProduct = parseInt(a.productCount);
-            let bProduct = parseInt(b.productCount);
+            let aProduct = parseInt(a.soldCount);
+            let bProduct = parseInt(b.soldCount);
 
             if ( aProduct > bProduct ){ return -1; }
             if ( aProduct < bProduct ){ return 1; }
@@ -40,14 +39,14 @@ function sortProducts(criterio, array){
 
 
 
-function showItemsList(){
+function showItemsList(array){
 
     let contenido = "";
     for(let i = 0; i < productsurlArray.length; i++){
     let products = productsurlArray[i];
     
-    if (((minProd == undefined) || (minProd != undefined && parseInt(product.cost) >= minProd)) &&
-            ((maxProd== undefined) || (maxProd != undefined && parseInt(product.cost) <= maxProd))){
+    if (((minProd == undefined) || (minProd != undefined && parseInt(products.productCount) >= minProd)) &&
+            ((maxProd== undefined) || (maxProd != undefined && parseInt(products.productCount) <= maxProd))){
   
         contenido +=`
     <a href="category-info.html" class="list-group-item list-group-item-action">
@@ -129,7 +128,7 @@ document.getElementById("sortPreDesc").addEventListener("click", function (){
 });
 
 
-document.getElementById("sortByCount").addEventListener("click", function(){
+document.getElementById("sortByProduct").addEventListener("click", function(){
     productsurlArray = sortProducts(ORDER_BY_PRODUCT, productsurlArray);
     showItemsList(productsurlArray);
  });
