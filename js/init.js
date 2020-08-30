@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   }
   document.getElementById("salir").addEventListener("click", function(){
     localStorage.removeItem('User-Logged');
-    window.location = "inicio.html"
+    window.location = "index.html"
   })
 });
 
