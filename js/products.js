@@ -49,7 +49,7 @@ function showItemsList(array){
             ((maxProd== undefined) || (maxProd != undefined && parseInt(products.productCount) <= maxProd))){
   
         contenido +=`
-    <a href="category-info.html" class="list-group-item list-group-item-action">
+    <a href="product-info.html" class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
                 <img src="` + products.imgSrc + `" class="img-thumbnail">

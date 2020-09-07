@@ -25,21 +25,76 @@
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted">
+  <div class="text-center p-4">
+  <h3 id="productName"></h3>
+  <hr class="my-3">
+  <dl> </div>
+    <dt>Descripción</dt>
+    <dd>
+      <p id="productDescription"></p>
+    </dd>
+
+    <dt>Costo</dt>
+    <dd>
+      <p id="productCost"></p>
+    </dd>
+
+    <dt>Moneda</dt>
+    <dd>
+      <p id="productCurrency"></p>
+    </dd>
+    <dt>Cantidad vendidos</dt>
+    <dd>
+      <p id="productSoldCount"></p>
+    </dd>
+
+    <dt>Categoría</dt>
+<dd>
+  <p id="productCategory"></p>
+</dd>
+
+    <dt>Imágenes</dt>
+    <dd>
+      <div class="row text-center text-lg-left pt-2" id="productImages">
+      </div>
+    </dd> 
+  </dl>
+
+<dt><div class="text-center "> Comentarios</div></dt> 
+<dd>
+
+  <div class="text-center" id="productComentarios">
+    
+  
+  <div>
+    <br><br>
+<dt><div class="text-center" id="newComment">Agregar comentario</div></dt>
+<br><br>
+<div class="text-center"><textarea id="newComm" rows="8" cols="60"></textarea>
+</div>
+<br><br> 
+<dt><div class="text-center">Calificalo!</div></dt>
+<div class="text-center"><select id="newCal">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select> <br><br> </div>
+<div class="text-center"><button id="enviarComm">Enviar</button></div>
+<br><br>
+  
+<a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+</div>
+</div>
+</dd>
+  <footer class="text-muted"></footer>
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a></p>
     </div>
   </footer>
   <div id="spinner-wrapper">
