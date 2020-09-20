@@ -43,17 +43,17 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
   let userLogged = localStorage.getItem('User-Logged');
   let infoUser = document.getElementById("info-user");
-  let user = document.getElementById("user");
+  let user = document.getElementById("User");
   
   if(userLogged){
     userLogged = JSON.parse(userLogged);
-    user.innerText = user.innerText + 'Usuario Logueado: ' + userLogged.email;
+    user.innerText = userLogged.email;
     infoUser.style = "display: inline-block";
   }
-  document.getElementById("salir").addEventListener("click", function(){
+  document.getElementById("sign-of").addEventListener("click", function(){
     localStorage.removeItem('User-Logged');
     window.location = "index.html"
-  })
+  });
 });
 
   

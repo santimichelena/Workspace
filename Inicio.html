@@ -22,9 +22,17 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
         <body class="text-center">
-         <div id="info-user" style="display: none;">
-            <p id="user" style="color: yellow;"></p>
-        <button id="salir">Salir</button>
+          <div class="dropdown" id="info-user">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="User" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Usuario
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+              <a class="dropdown-item" href="cart.html">Ver carrito</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" id="sign-of">Salir</a>
+            </div>
+        </div>
           </div>
           </div>
       </div>

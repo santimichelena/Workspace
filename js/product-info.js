@@ -1,5 +1,21 @@
 var product = {};
 var comments = []; 
+var productsArray = [];
+
+function showRelatedProducts(arrayListado, arrayRelated){
+    let htmlContenido = ""; 
+    arrayRelated.forEach(function (i) {
+        htmlContenido += `<strong><h4>${arrayListado[i].name}</strong></h4>`
+        htmlContenido += " " + arrayListado[i].description + '<br>';
+        htmlContenido += ` USD ${arrayListado[i].cost}<br>`;
+        htmlContenido += `<div class="d-block mb-4 h-70">
+        <img class="img-fluid img-thumbnail" src="` + arrayListado[i].imgSrc + `" alt="">
+    </div><br>`
+    });
+
+    document.getElementById("relatedProducts").innerHTML = htmlContenido;
+}
+
 
 function showImagesProduct(array){
 
@@ -26,20 +42,16 @@ function showComments(array){
     for(let i = 0; i < array.length; i++){
         let comentarios = array [i];
 
-    htmlComments +=  '<br></br>' + '<a></a> <hr></hr>' + comentarios.user + ":" + " " + comentarios.description + " " + comentarios.score + '<br><br>';
-
+    htmlComments +=  '<br></br>' + '<a></a> <hr></hr>' + comentarios.user + ":" + " " + comentarios.description + " ";
+    for (let i = 1; i <= comentarios.score; i++) 
+    htmlComments +=  `<span class="fa fa-star checked"></span>`
     document.getElementById("productComentarios").innerHTML = htmlComments;
 
     } 
 }
 
 
-
-
-
-
-
-    document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
             if (resultObj.status === "ok")
             {
@@ -66,6 +78,18 @@ function showComments(array){
 
             }
         });
+       
+        
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data;
+            
+            
+            showRelatedProducts (productsArray, product.relatedProducts);
+        }
+
+    });
+       
         getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
             if (resultObj.status === "ok")
             {
@@ -74,5 +98,7 @@ function showComments(array){
             }
         })
     });
+
+  
 
     

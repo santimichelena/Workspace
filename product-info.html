@@ -23,14 +23,26 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="dropdown" id="info-user">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="User" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuario
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="cart.html">Ver carrito</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" id="sign-of">Salir</a>
+        </div>
     </div>
+    
   </nav>
   <div class="text-center p-4">
-  <h3 id="productName"></h3>
+  <h1 id="productName"></h1>
   <hr class="my-3">
   <dl> </div>
-    <dt>Descripción</dt>
+   <div class="text-center" 
     <dd>
+      <dt>Descripción</dt>
       <p id="productDescription"></p>
     </dd>
 
@@ -58,16 +70,19 @@
       <div class="row text-center text-lg-left pt-2" id="productImages">
       </div>
     </dd> 
-  </dl>
+  </dl></div>
 
 <dt><div class="text-center "> Comentarios</div></dt> 
 <dd>
 
   <div class="text-center" id="productComentarios">
+  
     
+    </div>
   
   <div>
     <br><br>
+    
 <dt><div class="text-center" id="newComment">Agregar comentario</div></dt>
 <br><br>
 <div class="text-center"><textarea id="newComm" rows="8" cols="60"></textarea>
@@ -84,7 +99,11 @@
 <div class="text-center"><button id="enviarComm">Enviar</button></div>
 <br><br>
   
-<a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+<div class="text-center"> <a><h3>Artículos relacionados</h3></a>
+  <br><br>
+  <div class="text-center">  <div id="relatedProducts">
+  </div></div>  </div> </div>
+
 </div>
 </div>
 </dd>
