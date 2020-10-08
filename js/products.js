@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 getJSONData(PRODUCTS_URL).then(function(resultObj){
     if(resultObj.status === "ok")
     {
-        productsurlArray = resultObj.data;
+        productsurlArray = resultObj.data.cart;
         showItemsList(productsurlArray)
     }
 });
