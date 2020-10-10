@@ -55,6 +55,7 @@
   </div>
   </nav>
 
+  <!---Listado del carrito-->
   <div class="text-center"><h1>Carrito de compras</h1></div>
   <div class="carrito">
    <div class="text-center">
@@ -65,22 +66,109 @@
         <th scope="col">Nombre</th>
         <th scope="col">Moneda</th>
         <th scope="col">Cantidad de productos</th>
-        <th scope="col">Costo unitario</th>
-        <th scope="col">Costo subtotal</th>
+        <th scope="col">Precio unitario</th>
       </tr>
     </thead>
-    <tbody id="listado">
+    <tbody id="listado"></tbody>
       <tfoot>
         <tr>
-          <td colspan="4">Costo Total:</td>
+          <td colspan="4"><b>Costo subtotal</b></td>
           <td id="total"></td>
         </tr>
       </tfoot>
-    </tbody>
-  </table>
+      </table>
+    </hr>
+<!---Listado del carrito-->
 
   
+<!---Proceso de envío y -->
+<h4>Costos de envío</h4>
+  <div>
+    <input id="montevideo" name="envio" type="radio" value="70" checked="" required="">
+      <label for="montevideo">Montevideo: UYU$70 </label> <br>
+
+      <input id="interior" name="envio" type="radio" value="100" required="">
+      <label for="interior">Interior: UYU$100</label> <br>
+  </div>
+  <br>
+
+  <table class="table table-sm table-dark">
+    <thead>
+      <tr> 
+      <th scope="col"></th><td id="totalConEnvio"></td>
+        </tr>
+    </thead><tbody>
+      <tfoot>
+      </tfoot>
+    </tbody>
+  </table>
   
+      
+   
+  <!---Proceso de compra-->
+  <br>
+
+    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalPagar">Comprar</button>
+    <br><br>
+
+  </div>
+
+
+
+
+ <div class="modal fade" id="modalPagar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ingrese sus datos</h5>
+      </div>
+      <div class="modal-body">
+        <form action="index.html">
+          <div>
+            <h4>Datos personales:</h4>
+            <input type="text" class="form-control" placeholder="Nombre"><br>
+            <input type="text" class="form-control" placeholder="Apellido"><br>
+          </div>
+          <div>
+            <h4>Datos para el envío:</h4>
+            <label for="depto">Departamento</label><br>
+            <select class="form-control" id="depto">
+              <option>Montevideo</option>
+              <option>Artigas</option>
+              <option>Canelones</option>
+              <option>Cerro Largo</option>
+              <option>Colonia</option>
+              <option>Durazono</option>
+              <option>Flores</option>
+              <option>Florida</option>
+              <option>Lavalleja</option>
+              <option>Maldonado</option>
+              <option>Paysandú</option>
+              <option>Río Negro</option>
+              <option>Rivera</option>
+              <option>Rocha</option>
+              <option>Salto</option>
+              <option>San José</option>
+              <option>Soriano</option>
+              <option>Tacuarembó</option>
+              <option>Treinta y Tres</option>
+            </select><br>
+            <input type="text" class="form-control" placeholder="Dirección"> <br>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-block btn-success">Confirmar compra</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!---------------------------------------Proceso de compra--->
+
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

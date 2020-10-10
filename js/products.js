@@ -80,7 +80,7 @@ getJSONData(PRODUCTS_URL).then(function(resultObj){
     if(resultObj.status === "ok")
     {
         productsurlArray = resultObj.data.cart;
-        showItemsList(productsurlArray)
+        showItemsList(productsurlArray);
     }
 });
     });
