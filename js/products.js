@@ -49,7 +49,7 @@ function showItemsList(array){
             ((maxProd== undefined) || (maxProd != undefined && parseInt(products.productCount) <= maxProd))){
   
         contenido +=`
-    <a href="product-info.html" class="list-group-item list-group-item-action">
+    <a href="category-info.html" class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
                 <img src="` + products.imgSrc + `" class="img-thumbnail">
@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 getJSONData(PRODUCTS_URL).then(function(resultObj){
     if(resultObj.status === "ok")
     {
-        productsurlArray = resultObj.data.cart;
-        showItemsList(productsurlArray);
+        productsurlArray = resultObj.data;
+        showItemsList(productsurlArray)
     }
 });
     });

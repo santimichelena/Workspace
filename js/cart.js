@@ -64,14 +64,13 @@ function calcEnvio(){
         }
     }
 
-    let totalConEnvio = elSubTotal + envio;
+    let totalConEnvio = elSubTotal * envio / 100;
     let contenido = `
     <tr>
     <td> <b>Costo subtotal:</b> $ ${elSubTotal}</td>
     <br>
-    <td> <b>Costo de envío: </b> $ ${envio}</td>
     <br>
-    <td> <b>Total: </b> $ ${totalConEnvio}</td>  
+    <td> <b>Costo de envío: </b> $ ${totalConEnvio}</td>  
                 
 
     </tr>
@@ -80,6 +79,7 @@ function calcEnvio(){
     document.getElementById("totalConEnvio").innerHTML = contenido;
 
 }
+
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -103,3 +103,4 @@ document.addEventListener("DOMContentLoaded", function (e){
     }
 
 });
+

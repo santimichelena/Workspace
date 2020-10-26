@@ -82,91 +82,91 @@
 
   
 <!---Proceso de envío y -->
-<h4>Costos de envío</h4>
+<h4>Método de envío</h4>
   <div>
-    <input id="montevideo" name="envio" type="radio" value="70" checked="" required="">
-      <label for="montevideo">Montevideo: UYU$70 </label> <br>
+    <input id="premium" name="envio" type="radio" value="15" checked="" required="">
+      <label for="premium">Premium (2-5 días): Costo del 15% sobre el subtotal. </label> <br>
 
-      <input id="interior" name="envio" type="radio" value="100" required="">
-      <label for="interior">Interior: UYU$100</label> <br>
+      <input id="express" name="envio" type="radio" value="7" required="">
+      <label for="express">Express (5-8 días) - Costo del 7% sobre el subtotal.</label> <br>
+      
+      <input id="standard" name="envio" type="radio" value="5" required="">
+      <label for="standard">Standard (12 a 15 días) - Costo del 5% sobre el subtotal.</label>
   </div>
   <br>
 
-  <table class="table table-sm table-dark">
-    <thead>
-      <tr> 
-      <th scope="col"></th><td id="totalConEnvio"></td>
-        </tr>
-    </thead><tbody>
-      <tfoot>
-      </tfoot>
-    </tbody>
-  </table>
+   <h4>Datos personales</h4>
+<div class="text-center">
+  <input type="text" class="form-control" placeholder="Nombre y apellido" required> <br>
+  <input type="text" class="form-control" placeholder="Edad" required> <br>
+  <input type="text" class="form-control" placeholder="Dirección" required> <br>
+</div>  
+  
+  
+  
+  
+  
+  
+  <!---Forma de pago-->
+   <br>
+
+   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalPagar">Forma de pago</button>
+   <br><br>
+ 
+ </div>
+ 
+ 
+ 
+ 
+ <div class="modal fade" id="modalPagar">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <div class="modal-header" class="formaPago">
+       <h5 class="modal-title">Forma de pago</h5>
+     </div>
+     <div class="modal-body">
+       <form action="index.html">
+           <h4>Elija forma de pago</h4>
+           <label for="depto"></label><br>
+           <select class="form-control" id="depto">
+             <option>Tarjeta de crédito</option>
+             <option>Transferencia bancaria</option>
+           </select>
+         </div>
+         <input type="text" class="form-control" placeholder="Titular de tarjeta" id="titTarj" required><br>
+         <input type="text" class="form-control" placeholder="Número de tarjeta" id="numTarj" required><br>
+         <input type="text" class="form-control" placeholder="Fecha de vencimiento" id="fechVenc" required> <br>
+         <input type="text" class="form-control" placeholder="Código de tarjeta" id="codTarj" required> <br>
+ 
+         <div class="modal-footer">
+           <button type="submit" class="btn btn-block btn-success">Confirmar método de pago</button>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+         </div>
+ 
+       </form>
+     </div>
+   </div>
+ </div>
+ <!---------------------------------------Proceso de compra--->
+  
+  
+  <div class="text-center">
+    <table class="table table-sm table-dark">
+      <thead>
+        <tr> 
+        <th scope="col"></th><td id="totalConEnvio"></td>
+          </tr>
+      </thead><tbody>
+        <tfoot>
+        </tfoot>
+      </tbody>
+    </table>
+  </div>
   
       
-   
-  <!---Proceso de compra-->
-  <br>
+  
 
-    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#modalPagar">Comprar</button>
-    <br><br>
-
-  </div>
-
-
-
-
- <div class="modal fade" id="modalPagar">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Ingrese sus datos</h5>
-      </div>
-      <div class="modal-body">
-        <form action="index.html">
-          <div>
-            <h4>Datos personales:</h4>
-            <input type="text" class="form-control" placeholder="Nombre"><br>
-            <input type="text" class="form-control" placeholder="Apellido"><br>
-          </div>
-          <div>
-            <h4>Datos para el envío:</h4>
-            <label for="depto">Departamento</label><br>
-            <select class="form-control" id="depto">
-              <option>Montevideo</option>
-              <option>Artigas</option>
-              <option>Canelones</option>
-              <option>Cerro Largo</option>
-              <option>Colonia</option>
-              <option>Durazono</option>
-              <option>Flores</option>
-              <option>Florida</option>
-              <option>Lavalleja</option>
-              <option>Maldonado</option>
-              <option>Paysandú</option>
-              <option>Río Negro</option>
-              <option>Rivera</option>
-              <option>Rocha</option>
-              <option>Salto</option>
-              <option>San José</option>
-              <option>Soriano</option>
-              <option>Tacuarembó</option>
-              <option>Treinta y Tres</option>
-            </select><br>
-            <input type="text" class="form-control" placeholder="Dirección"> <br>
-          </div>
-
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-block btn-success">Confirmar compra</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-  <!---------------------------------------Proceso de compra--->
-
+  
 
 
   <div id="spinner-wrapper">
